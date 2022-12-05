@@ -13,7 +13,7 @@ namespace NewImprovedWordle
         {
             foreach (char letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower())
             {
-                AlphabetWithColors.Add(new char[] { letter, 'b' });
+                AlphabetWithColors.Add(new char[] { letter, 'd' });
             }
         }
 

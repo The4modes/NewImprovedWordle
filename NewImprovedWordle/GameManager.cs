@@ -19,8 +19,6 @@ namespace NewImprovedWordle
         {
             StartScript();
 
-            Thread.Sleep(1000);
-
             Wordle = ChooseWordle();
 
             GuessManager guessManager = GenerateGuessManager();
@@ -45,6 +43,20 @@ namespace NewImprovedWordle
         {
             Console.WriteLine("Welcome to Wordle");
             Console.WriteLine("Your objective with this game is to try to guess the hidden word.");
+
+            Thread.Sleep(1000);
+            Console.WriteLine();
+
+            Console.WriteLine("The console will display different colors of the letters\n" +
+                "green: the letter was in the correct place\n" +
+                "yellow: the hidden word contains the letter but is in the wrong place\n" +
+                "black: the hidden word does not cointain the letter");
+
+            Thread.Sleep(1000);
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         public IWordle ChooseWordle()

@@ -26,11 +26,13 @@ namespace NewImprovedWordle
                         Console.Write(character[0]);
                         break;
                     case 'b':
-                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        Console.BackgroundColor = ConsoleColor.Black;
                         Console.Write(character[0]);
                         break;
                     default:
-                        throw new Exception("A color was never assigned to the letter");
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        Console.Write(character[0]);
+                        break;
                 }
             }
 
@@ -63,6 +65,7 @@ namespace NewImprovedWordle
                 }
                 else
                 {
+                    wordle.UpdateAlphabetColors(chars[0], 'b');
                     chars[1] = 'b';
                 }
 
