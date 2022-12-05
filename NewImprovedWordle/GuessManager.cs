@@ -15,7 +15,6 @@ namespace NewImprovedWordle
 
         public GuessManager() : this(6)
         {
-            
         }
 
         public GuessManager(int tries)

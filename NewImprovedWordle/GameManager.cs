@@ -68,7 +68,7 @@ namespace NewImprovedWordle
                 default:
                     Console.Clear();
                     Console.WriteLine("You did not choose a legal value, lets try again...");
-                    return ChooseWordle();
+                    return new Test();
             }
         }
 
@@ -76,7 +76,8 @@ namespace NewImprovedWordle
         {
             Console.Clear();
 
-            Console.WriteLine("Do you want to play the standard experience or change the amount of tries you get?\n" +
+            Console.WriteLine("Do you want to play the standard experience or" +
+                " change the amount of tries you get?\n" +
                 "1: Standard\n" +
                 "2: Choose amount of tries");
 

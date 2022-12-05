@@ -34,7 +34,7 @@ namespace NewImprovedWordle
             else
             {
                 Console.Clear();
-                Console.WriteLine("You did not choose real word");
+                Console.WriteLine("You did not choose real word or a word that has already been guessed");
                 SetHiddenWord();
             }
         }
