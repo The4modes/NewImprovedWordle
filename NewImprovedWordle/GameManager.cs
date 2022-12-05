@@ -68,7 +68,7 @@ namespace NewImprovedWordle
                 default:
                     Console.Clear();
                     Console.WriteLine("You did not choose a legal value, lets try again...");
-                    return new Test();
+                    return ChooseWordle();
             }
         }
 
