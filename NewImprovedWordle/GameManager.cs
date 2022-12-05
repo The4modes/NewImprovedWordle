@@ -7,7 +7,13 @@ namespace NewImprovedWordle
 {
     class GameManager
     {
-        IWordle Wordle { get; set; }
+        private IWordle? Wordle { get; set; }
+        private DisplayManager DisplayManager { get; set; }
+
+        public GameManager()
+        {
+            DisplayManager = new DisplayManager();
+        }
 
         public void RunGame()
         {
@@ -17,12 +23,13 @@ namespace NewImprovedWordle
 
             Wordle = ChooseWordle();
 
-            DisplayManager displayManager = new DisplayManager();
             GuessManager guessManager = GenerateGuessManager();
 
             while(guessManager.GuessCount < guessManager.MaximumGuesses && !guessManager.Win)
-                guessManager.GuessWord(Wordle, displayManager);
-
+            {
+                guessManager.GuessWord(Wordle, DisplayManager);
+            }
+                
             if (guessManager.Win)
             {
                 Console.WriteLine("Congratulations, you got the word correct!");
@@ -45,7 +52,7 @@ namespace NewImprovedWordle
             Console.WriteLine("Do you want to play wordle with:\n" +
                 "1: four letter words\n" +
                 "2: five letter words\n" +
-                "3: six letter words");
+                "3: Choose your own four or five letter word");
             Console.WriteLine("Choose either \"1\",\"2\" or \"3\" ");
 
             int.TryParse(Console.ReadLine(), out int choice);
@@ -57,7 +64,7 @@ namespace NewImprovedWordle
                 case 2:
                     return new FiveLetter();
                 case 3:
-                    return new AnimalGame();
+                    return new OwnWord();
                 default:
                     Console.Clear();
                     Console.WriteLine("You did not choose a legal value, lets try again...");

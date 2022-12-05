@@ -5,7 +5,7 @@ namespace NewImprovedWordle
 {
     abstract class Wordle : IWordle
     {
-        public string HiddenWord { get; protected set; }
+        public string? HiddenWord { get; protected set; }
         public List<string> Words { get; set; } = new List<string>();
         public List<char[]> AlphabetWithColors { get; set; } = new List<char[]>();
 
@@ -17,7 +17,7 @@ namespace NewImprovedWordle
             }
         }
 
-        public virtual void SetHiddenWord()
+        protected virtual void SetHiddenWord()
         {
             Random random = new Random();
 
@@ -28,7 +28,7 @@ namespace NewImprovedWordle
         {
             foreach (char[] letter in AlphabetWithColors)
             {
-                if (character == letter[0])
+                if (character == letter[0] && letter[1] != 'g')
                 {
                     letter[1] = color;
                 }

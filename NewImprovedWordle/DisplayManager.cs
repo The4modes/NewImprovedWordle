@@ -39,13 +39,18 @@ namespace NewImprovedWordle
 
         public void DisplayWordColor(string words, IWordle wordle)
         {
+            if(wordle.HiddenWord is null)
+            {
+                throw new NullReferenceException();
+            }
+
             List<char[]> wordWithColor = new List<char[]>();
 
             for(int i = 0; i < words.Length; i++)
             {
                 char[] chars = new char[2];
                 chars[0] = words[i];
-
+                
                 if (wordle.HiddenWord[i] == words[i])
                 {
                     wordle.UpdateAlphabetColors(chars[0], 'g');

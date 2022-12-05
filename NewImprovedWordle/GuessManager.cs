@@ -15,6 +15,7 @@ namespace NewImprovedWordle
 
         public GuessManager() : this(6)
         {
+            
         }
 
         public GuessManager(int tries)
@@ -25,6 +26,11 @@ namespace NewImprovedWordle
 
         public void GuessWord(IWordle wordle, DisplayManager displayManager)
         {
+            if(wordle.HiddenWord is null)
+            {
+                throw new NullReferenceException("The hidden word is never set");
+            }
+
             Console.WriteLine($"Guess a word with {wordle.HiddenWord.Length} letters");
 
             string guess = Console.ReadLine().ToLower();
