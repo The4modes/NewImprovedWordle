@@ -19,23 +19,33 @@ namespace NewImprovedWordle
         {
             StartScript();
 
-            Wordle = ChooseWordle();
-
-            GuessManager guessManager = GenerateGuessManager();
-
-            while(guessManager.GuessCount < guessManager.MaximumGuesses && !guessManager.Win)
+            try
             {
-                guessManager.GuessWord(Wordle, DisplayManager);
+                Wordle = ChooseWordle();
             }
-                
-            if (guessManager.Win)
+            catch(NotImplementedException)
             {
-                Console.WriteLine("Congratulations, you got the word correct!");
+                Console.WriteLine("Word list is empty, could not generate a hidden word");
             }
-            else
+
+            if(Wordle != null)
             {
-                Console.WriteLine("You did not get the word...");
-                Console.WriteLine($"Correct word was: {Wordle.HiddenWord}");
+                GuessManager guessManager = GenerateGuessManager();
+
+                while (guessManager.GuessCount < guessManager.MaximumGuesses && !guessManager.Win)
+                {
+                    guessManager.GuessWord(Wordle, DisplayManager);
+                }
+
+                if (guessManager.Win)
+                {
+                    Console.WriteLine("Congratulations, you got the word correct!");
+                }
+                else
+                {
+                    Console.WriteLine("You did not get the word...");
+                    Console.WriteLine($"Correct word was: {Wordle.HiddenWord}");
+                }
             }
         }
 

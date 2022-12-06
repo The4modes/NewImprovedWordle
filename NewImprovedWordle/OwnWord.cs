@@ -11,10 +11,9 @@ namespace NewImprovedWordle
         {
             Words = ChooseAvailableWords();
 
-
             if (Words.Count == 0)
             {
-                throw new Exception("Word list have no values");
+                throw new NotImplementedException();
             }
 
             SetHiddenWord();
